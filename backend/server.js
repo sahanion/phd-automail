@@ -201,12 +201,25 @@ app.post("/send-email", async (req, res) => {
     const { to, subject, body, name, university } = req.body;
 
     const transporter = nodemailer.createTransport({
-      service: "gmail",
+      host: "smtp.gmail.com",
+      port: 587,
+      secure: false, // IMPORTANT: false for 587
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
-    });
+      tls: {
+        rejectUnauthorized: false,
+      },
+      family: 4, // 🔥 FORCE IPv4 (CRITICAL FIX)
+    });    
+    // const transporter = nodemailer.createTransport({
+    //   service: "gmail",
+    //   auth: {
+    //     user: process.env.EMAIL_USER,
+    //     pass: process.env.EMAIL_PASS,
+    //   },
+    // });
 
     // 🔁 Replace placeholders safely
     let htmlBody = body
@@ -242,6 +255,7 @@ app.post("/send-email", async (req, res) => {
         ${htmlBody}
         ${SIGNATURE}
       `,
+      
       attachments: [
         {
           filename: "visual.png",
