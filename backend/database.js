@@ -26,6 +26,27 @@
 // module.exports = db;
 
 
+// const Database = require("better-sqlite3");
+
+// const db = new Database("logs.db");
+
+// // Create table
+// db.prepare(`
+//   CREATE TABLE IF NOT EXISTS mail_logs (
+//     id INTEGER PRIMARY KEY AUTOINCREMENT,
+//     professor_name TEXT,
+//     university TEXT,
+//     email TEXT,
+//     attempts INTEGER,
+//     timestamp DATETIME DEFAULT CURRENT_TIMESTAMP,
+//     ip TEXT,
+//     location TEXT
+//   )
+// `).run();
+
+// module.exports = db;
+
+
 const Database = require("better-sqlite3");
 
 const db = new Database("logs.db");
