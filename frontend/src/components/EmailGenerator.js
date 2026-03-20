@@ -18,7 +18,7 @@ function EmailGenerator({ profData }) {
     setError("");
 
     try {
-      const response = await fetch("http://localhost:5000/generate-email", {
+      const response = await fetch("https://phd-automail.onrender.com/generate-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -46,7 +46,7 @@ function EmailGenerator({ profData }) {
     setSending(true);
 
     try {
-      const response = await fetch("http://localhost:5000/send-email", {
+      const response = await fetch("https://phd-automail.onrender.com/send-email", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
