@@ -5,7 +5,7 @@ function MailLogs() {
 
   const fetchLogs = async () => {
     try {
-      const response = await fetch("https://phd-automail.onrender.com/logs");
+      const response = await fetch("https://phd-automail-production.up.railway.app/logs");
       const data = await response.json();
 
       if (data.success) {
