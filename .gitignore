@@ -1,6 +1,6 @@
 node_modules/
 .env
 logs.db
-files/
+
 build/
 dist/
